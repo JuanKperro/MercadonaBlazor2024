@@ -1,0 +1,69 @@
+﻿@page "/Cliente/Login"
+@inject NavigationManager navigate
+@using Microsoft.AspNetCore.Components.Forms
+@using static MercadonaBlazor2024.Shared.Cliente
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="./images/imagen_circulo_link_registro.gif"><a @onclick="@(()=>this.navigate.NavigateTo("Cliente/Registro"))">Registrarse como Cliente</a>
+            <ul>
+                <li>A traves de esta opcion accedera al formulario para convertirse en cliente del supermercado online no teniendo que volver a escribir sus datos</li>
+            </ul>
+        </div>
+        <div class="col-md-8"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="./images/imagen_circulo_link_condicionesGenerales.gif"><a href="https://www.telecompra.mercadona.es/ns/guiacompra.php">Condiciones generales de compra</a>
+        </div>
+        <div class="col-md-8"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <img src="./images/imagen_circulo_link_login.gif"><a href="javascript:void(0)">Cliente registrado</a>
+        </div>
+        <div class="col-md-4" style="border:#ff9900 1pt solid; background:#ffcc00;">
+            <EditForm Model="this.credenciales" OnValidSubmit="hacerLogin">
+                <div class="row">
+                    <label for="inputEmail" class="col-md-2 col-form-label"><strong>Email de acceso:</strong></label>
+                    <div class="col-md-10">
+                        <input type="email" class="form-control" id="inputEmail" @bind="@credenciales.Email">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="inputPassword" class="col-md-2 col-form-label"><strong>Contraseña:</strong></label>
+                    <div class="col-md-10">
+                        <input type="password" class="form-control" id="inputPassword" @bind="@credenciales.Password">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-outline-success">ENTRAR</button>
+                    </div>
+                </div>
+
+            </EditForm>
+        </div>
+
+        <div class="col-md-6"></div>
+    </div>
+
+
+</div>
+@code {
+    Credenciales credenciales = new Credenciales();
+
+
+    public async Task hacerLogin()
+    {
+        
+    }
+}
